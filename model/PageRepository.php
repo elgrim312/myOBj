@@ -48,7 +48,7 @@ class PageRepository
      * @param int $id
      * @return bool
      */
-    public function supprimer(int $id)
+    public function supprimer($id)
     {
         return true;
     }
@@ -68,16 +68,7 @@ class PageRepository
      */
     public function getBySlug($slug)
     {
-        $sql ="SELECT 
-                    `id`, 
-                    `slug`, 
-                    `body`, 
-                    `title` 
-                FROM 
-                    `page` 
-                WHERE 
-                    `slug` = :slug
-                ";
+        $sql ="SELECT  `id`, `slug`,`body`,`title` FROM `page` WHERE `slug` = :slug";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
