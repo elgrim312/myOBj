@@ -8,3 +8,5 @@ try{
 }
 $page = new \Controller\PageController($pdo);
 $page->displayAction();
+$nav =  new \Controller\NavController($pdo);
+$nav->nav();

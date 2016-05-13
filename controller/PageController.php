@@ -3,11 +3,6 @@ namespace Controller;
 
 use Model\PageRepository;
 
-/**
- * Class PageController
- * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
- * @package Controller
- */
 class PageController
 {
     /**
@@ -73,4 +68,5 @@ class PageController
 		}
 		include "view/page-display.php";
 	}
+
 }

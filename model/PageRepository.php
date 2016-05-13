@@ -3,11 +3,6 @@ namespace Model;
 
 /**
  * Class PageRepository
- * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
- * @package model
- */
-/**
- * Class PageRepository
  * @package model
  */
 class PageRepository
@@ -62,10 +57,6 @@ class PageRepository
         return 1;
     }
 
-    /**
-     * @param $slug
-     * @return \stdClass\bool
-     */
     public function getBySlug($slug)
     {
         $sql ="SELECT  `id`, `slug`,`body`,`title` FROM `page` WHERE `slug` = :slug";
@@ -73,5 +64,12 @@ class PageRepository
         $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchObject();
+    }
+    public function getAllSlug()
+    {
+        $sql = "SELECT `slug` FROM `page`";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        return $stmt;
     }
 }
