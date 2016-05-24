@@ -64,6 +64,8 @@ class PageController
         // recuperation du slug du parametre d'url si present
         if (isset($_GET['p'])) {
             $slug = $_GET['p'];
+        }else{
+            $_GET['p'] = 'teletubbies';
         }
         // en PHP 7
         // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
