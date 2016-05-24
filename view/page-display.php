@@ -8,7 +8,7 @@
 </head>
 <body role="document">
 <?= $nav ?>
-<div class="container theme-showcase" role="main">
+<div style="margin-top: 100px;" class="container theme-showcase" role="main">
     <?= $page->body ?>
 </div>
 </body>

@@ -90,4 +90,11 @@ class PageController
         $nav = ob_get_clean();
         return $nav;
     }
+
+    public function active($active, $slug)
+    {
+        if ($active === $slug) {
+            return ' class="active"';
+        }
+    }
 }
