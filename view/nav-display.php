@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav">
                <?php
                 while ($row = $nav->fetchObject()) {
-                   echo '<li class="active"><a href="http://localhost:8888/new_obj/CMSG1/?p='.$row->slug.'">'.$row->slug.'</a></li>';
+                   echo '<li><a href="http://localhost:8888/new_obj/CMSG1/?p='.$row->slug.'">'.$row->slug.'</a></li>';
                 }
                ?>
             </ul>
