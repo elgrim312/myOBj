@@ -86,7 +86,6 @@ class PageController
         ob_start();
         // generer la nav
         $nav = $this->repository->getAllSlugs();
-        var_dump($nav);
         include "view/nav.php";
         $nav = ob_get_clean();
         return $nav;

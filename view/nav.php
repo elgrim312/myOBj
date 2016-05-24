@@ -5,12 +5,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>toto</li>
-                <?php
-                foreach ($nav as $link => $title) : ?>
-                    <li><a href="?p="<?php $title->slug ?>><?php $title->slug ?></a>
+                <?php foreach ($nav as $link) : ?>
+                    <li>
+                        <a href="?p=<?= $link->slug ?>"><?= $link->slug ?></a>
                     </li>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </ul>
         </div>
     </div>
