@@ -68,5 +68,12 @@ class PageController
 		}
 		include "view/page-display.php";
 	}
+	private function genererLaNav ()
+	{
+		ob_start();
+		$nav = ob_get_clean();
+		return $nav;
+		include "view/nav-display.php";
+	}
 
 }
