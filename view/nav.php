@@ -6,7 +6,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <?php foreach ($nav as $link) : ?>
-                    <li <?php active($_GET['p'], $link->slug)?>>
+                    <li <?= Controller\PageController::Active($_GET['p'], $link->slug)?>>
                         <a  href="?p=<?= $link->slug ?>"><?= $link->slug ?></a>
                     </li>
                 <?php endforeach ?>
@@ -15,8 +15,3 @@
     </div>
 </nav>
 <?php
-function active($active,$slug){
-    if($active===$slug){
-        echo ' class="active"';
-    }
-}

@@ -91,7 +91,7 @@ class PageController
         return $nav;
     }
 
-    public function active($active, $slug)
+    public static function Active($active, $slug)
     {
         if ($active === $slug) {
             return ' class="active"';
