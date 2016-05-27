@@ -10,6 +10,8 @@ use Model\PageRepository;
  */
 class PageController
 {
+    const DEFAUT = 'hello';
+    const LINK_DEFAULT = 'kitten';
     /**
      * PageController constructor.
      * @param \PDO $PDO
@@ -88,6 +90,8 @@ class PageController
         ob_start();
         // generer la nav
         $nav = $this->repository->getAllSlugs();
+        $home = self::DEFAUT;
+        $default = self::LINK_DEFAULT;
         include "view/nav.php";
         $nav = ob_get_clean();
         return $nav;
