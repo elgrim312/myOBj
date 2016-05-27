@@ -6,7 +6,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <?php foreach ($nav as $wtf) { ?>
-                    <li <?= Controller\PageController::Active($_GET['p'], $wtf->slug)?>>
+                    <li class="<?=isActive($wtf->slug, $slug)?>">
                         <a  href="?p=<?= $wtf->slug ?>"><?= $wtf->slug ?></a>
                     </li>
                 <?php } ?>
