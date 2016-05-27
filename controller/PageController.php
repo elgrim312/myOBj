@@ -54,6 +54,8 @@ class PageController
      */
     public function listeAction()
     {
+        $page = $this->repository->lister();
+        include '../view/admin_index.php';
     }
 
     /**

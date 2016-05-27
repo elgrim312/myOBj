@@ -27,12 +27,14 @@ class PageRepository
     }
 
     /**
-     * @param null $id
      * @return array
      */
-    public function lister($id = null)
+    public function lister()
     {
-        return [];
+        $sql = "SELECT slug, title, id FROM `page`";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     /**
