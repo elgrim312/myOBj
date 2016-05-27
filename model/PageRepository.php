@@ -48,7 +48,7 @@ class PageRepository
      * @param int $id
      * @return bool
      */
-    public function supprimer(int $id)
+    public function supprimer($id)
     {
         return true;
     }
@@ -64,7 +64,7 @@ class PageRepository
 
     /**
      * @param $slug
-     * @return \stdClass\bool
+     * @return bool
      */
     public function getBySlug($slug)
     {
