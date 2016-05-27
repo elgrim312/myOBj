@@ -68,14 +68,7 @@ class PageRepository
      */
     public function getBySlug($slug)
     {
-        $sql = "SELECT 
-                    `body`, 
-                    `title` 
-                FROM 
-                    `page` 
-                WHERE 
-                    `slug` = :slug
-                ";
+        $sql = "SELECT `body`, `title` FROM `page` WHERE `slug` = :slug";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':slug', $slug, \PDO::PARAM_STR);
         $stmt->execute();
@@ -84,11 +77,7 @@ class PageRepository
 
     public function getAllSlugs()
     {
-        $sql = "SELECT 
-                    `slug`  
-                FROM 
-                    `page` 
-                ";
+        $sql = "SELECT `slug` FROM `page`";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
