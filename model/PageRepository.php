@@ -43,7 +43,19 @@ class PageRepository
      */
     public function modifier(array $data)
     {
-        return true;
+        $sql = "UPDATE page SET slug = :slug, h1 = :h1, body = :body,
+                title = :title, img = :img, span_text = :span_text,
+                span_class = :span_class";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':slug', $data['slug']);
+        $stmt->bindParam(':h1', $data['h1']);
+        $stmt->bindParam(':body', $data['body']);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':img', $data['img']);
+        $stmt->bindParam(':span_text', $data['span_text']);
+        $stmt->bindParam(':span_class', $data['span_class']);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     /**

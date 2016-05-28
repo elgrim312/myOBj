@@ -7,7 +7,7 @@
     <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body role="document">
-<h1 class="text-info" style="text-align: center">ONT EST DES ADMINS PUTAIN !!!!!</h1>
+<h1 class="text-info" style="text-align: center">ON EST DES ADMINS PUTAIN !!!!!</h1>
 <div style="margin-top: 100px;" class="container theme-showcase" role="main">
     <table class="table-bordered table-responsive table">
         <tr>
