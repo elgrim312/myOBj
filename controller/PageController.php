@@ -26,6 +26,11 @@ class PageController
      */
     public function ajoutAction()
     {
+        if (count($_POST) === 0) {
+            include "../admin/add.php";
+        }
+        $this->repository->inserer($_POST);
+        header('Location:index.php' );
     }
 
     /**
@@ -33,6 +38,9 @@ class PageController
      */
     public function supprimerAction()
     {
+        $id = $_GET['id'];
+        $this->repository->supprimer($id);
+        header('Location:index.php' );
     }
 
     /**
@@ -40,6 +48,13 @@ class PageController
      */
     public function modifierAction()
     {
+        if (count($_POST) === 0) {
+            $id = $_GET['id'];
+            $detail = $this->repository->detailAction($id);
+            include "../admin/update.php";
+        }
+        $this->repository->modifier($_POST);
+        header('Location:index.php');
     }
 
     /**
@@ -47,6 +62,9 @@ class PageController
      */
     public function detailsAction()
     {
+        $id = $_GET['id'];
+         $details = $this->repository->detailAction($id);
+        include "../admin/detail.php";
     }
 
     /**
