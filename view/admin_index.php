@@ -21,13 +21,10 @@
             <td><?=$key->id?></td>
             <td><?=$key->title?></td>
             <td><?=$key->slug?></td>
-            <td><a href="?a=modifier">m</a> -<a href="?a=ajouter">s</a></td>
-        </tr>
-        <?php } ?>
-    </table>
             <td><a href="?a=modifier&id=<?=$key->id?>">-m</a> -<a href="?a=supprimer&id=<?=$key->id?>">s</a> <a
                     href="?a=details&id=<?=$key->id?>">-v</a></td>
         </tr>
+        <?php } ?>
     </table>
     <a href="?a=ajouter">++</a>
 </div>
