@@ -43,16 +43,9 @@ class PageRepository
      */
     public function modifier(array $data)
     {
-<<<<<<< HEAD
-        $sql = "UPDATE page SET slug = :slug, h1 = :h1, body = :body,
-                title = :title, img = :img, span_text = :span_text,
-                span_class = :span_class";
-        $stmt = $this->PDO->prepare($sql);
-=======
         $sql = "UPDATE page SET slug = :slug, h1 = :h1, body = :body, title = :title, img = :img, span_text = :span_text, span_class = :span_class WHERE id = :id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id', $data['id']);
->>>>>>> e1f7de0640661a942d7de936d8c543180c9d485c
         $stmt->bindParam(':slug', $data['slug']);
         $stmt->bindParam(':h1', $data['h1']);
         $stmt->bindParam(':body', $data['body']);

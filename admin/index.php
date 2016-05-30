@@ -16,14 +16,6 @@ if (isset($_GET['a'])) {
 }
 switch($action){
     case 'ajouter':
-<<<<<<< HEAD
-        break;
-    case 'modifier':
-        break;
-    case 'supprimer':
-        break;
-    case 'details':
-=======
         $page->ajoutAction();
         break;
     case 'modifier':
@@ -34,7 +26,6 @@ switch($action){
         break;
     case 'details':
         $page->detailsAction();
->>>>>>> e1f7de0640661a942d7de936d8c543180c9d485c
         break;
     case 'lister':
     default:
