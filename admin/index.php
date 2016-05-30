@@ -5,7 +5,8 @@
  * Date: 27/05/2016
  * Time: 16:42
  */
-require_once '../init.php';
+chdir($appRoot = dirname(__DIR__));
+require_once 'init.php';
 // demarre notre application
 $page = new \Controller\PageController($pdo);
 // afficher la page demandee

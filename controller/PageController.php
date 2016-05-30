@@ -27,7 +27,7 @@ class PageController
     public function ajoutAction()
     {
         if (count($_POST) === 0) {
-            include "../admin/add.php";
+            include "admin/add.php";
         }
         $this->repository->inserer($_POST);
         header('Location:index.php' );
@@ -51,7 +51,7 @@ class PageController
         if (count($_POST) === 0) {
             $id = $_GET['id'];
             $detail = $this->repository->detailAction($id);
-            include "../admin/update.php";
+            include "admin/update.php";
         }
         $this->repository->modifier($_POST);
         header('Location:index.php');
@@ -64,7 +64,7 @@ class PageController
     {
         $id = $_GET['id'];
          $details = $this->repository->detailAction($id);
-        include "../admin/detail.php";
+        include "admin/detail.php";
     }
 
     /**
@@ -73,7 +73,7 @@ class PageController
     public function listeAction()
     {
         $page = $this->repository->lister();
-        include '../view/admin_index.php';
+        include 'view/admin_index.php';
     }
 
     /**

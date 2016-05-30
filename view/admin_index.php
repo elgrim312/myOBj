@@ -26,7 +26,8 @@
         </tr>
         <?php } ?>
     </table>
-    <a href="?a=ajouter">++</a>
+    <a href="?a=ajouter">ajouter</a>
+    <a href="http://localhost:8888/PooYann?p=teletobise" style="margin-left: 30px">retour au site</a>
 </div>
 </body>
 </html>
