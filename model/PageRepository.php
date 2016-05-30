@@ -27,12 +27,14 @@ class PageRepository
     }
 
     /**
-     * @param null $id
      * @return array
      */
-    public function lister($id = null)
+    public function lister()
     {
-        return [];
+        $sql = "SELECT slug, title, id FROM `page`";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     /**
@@ -41,7 +43,18 @@ class PageRepository
      */
     public function modifier(array $data)
     {
-        return true;
+        $sql = "UPDATE page SET slug = :slug, h1 = :h1, body = :body, title = :title, img = :img, span_text = :span_text, span_class = :span_class WHERE id = :id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':slug', $data['slug']);
+        $stmt->bindParam(':h1', $data['h1']);
+        $stmt->bindParam(':body', $data['body']);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':img', $data['img']);
+        $stmt->bindParam(':span_text', $data['span_text']);
+        $stmt->bindParam(':span_class', $data['span_class']);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     /**
@@ -50,6 +63,10 @@ class PageRepository
      */
     public function supprimer($id)
     {
+        $sql = "DELETE FROM page WHERE id = :id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
         return true;
     }
 
@@ -59,7 +76,17 @@ class PageRepository
      */
     public function inserer(array $data)
     {
-        return 1;
+        $sql = "INSERT INTO page (`slug`, `h1`, `body`, `title`, `img`, `span_text`, `span_class`)
+                VALUES (:slug, :h1, :body, :title, :img, :span_text, :span_class)";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':slug', $data['slug'] );
+        $stmt->bindParam(':h1', $data['h1'] );
+        $stmt->bindParam(':body', $data['body'] );
+        $stmt->bindParam(':title', $data['title'] );
+        $stmt->bindParam(':img', $data['img'] );
+        $stmt->bindParam(':span_text', $data['span_text'] );
+        $stmt->bindParam(':span_class', $data['span_class'] );
+        $stmt->execute();
     }
 
     /**
@@ -81,5 +108,12 @@ class PageRepository
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+    public function detailAction ($id) {
+        $sql = "SELECT * FROM page WHERE id = :id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchObject();
     }
 }
