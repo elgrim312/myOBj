@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Lun 06 Juin 2016 à 11:22
+-- Généré le :  Lun 06 Juin 2016 à 16:52
 -- Version du serveur :  5.5.42
 -- Version de PHP :  5.6.10
 
@@ -36,9 +36,9 @@ CREATE TABLE `page` (
 --
 
 INSERT INTO `page` (`id`, `slug`, `h1`, `body`, `title`, `img`, `span_text`, `span_class`) VALUES
-(7, 'kitten', 'chat', 'chaton oui <3', 'kitten', 'img/three_kittens.jpg', 'azrt', 'label-default'),
-(9, 'aezzedtcjawad', 'azeaz', 'azeaz', 'zeaze', 'img/lama.jpg', 'azeaz', 'label-warning'),
-(10, 'test', 'tet', 'test', 'test', 'img/snorkies.jpg', 'etsat', 'label-info');
+  (7, 'kitten', 'chat', 'chaton oui <3', 'kitten', 'img/three_kittens.jpg', 'azrt', 'label-default'),
+  (9, 'aezzedtcjawad', 'azeaz', 'azeaz', 'zeaze', 'img/lama.jpg', 'azeaz', 'label-warning'),
+  (10, 'test', 'tet', 'test', 'test', 'img/snorkies.jpg', 'etsat', 'label-info');
 
 --
 -- Index pour les tables exportées
@@ -48,8 +48,8 @@ INSERT INTO `page` (`id`, `slug`, `h1`, `body`, `title`, `img`, `span_text`, `sp
 -- Index pour la table `page`
 --
 ALTER TABLE `page`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`);
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `slug` (`slug`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -59,4 +59,4 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT pour la table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;

@@ -27,6 +27,7 @@ class PageController
     public function ajoutAction()
     {
         if (count($_POST) === 0) {
+            $page = $this->repository->lister();
             include "view/admin/add.php";
         }
         $this->repository->inserer($_POST);
@@ -50,6 +51,7 @@ class PageController
     {
         if (count($_POST) === 0) {
             $id = $_GET['id'];
+            $page = $this->repository->lister();
             $detail = $this->repository->detailAction($id);
             include "view/admin/update.php";
         } else {

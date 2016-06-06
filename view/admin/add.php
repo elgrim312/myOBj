@@ -33,7 +33,11 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Img</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Img" name="img">
+            <select name="img" id="exampleInputPassword1" class="form-control">
+                <?php foreach ($page as $key) : ?>
+                    <option value="<?= $key->img ?>"><?= $key->img ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">span_text</label>
@@ -41,8 +45,11 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">span_class</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="span_class"
-                   name="span_class">
+            <select name="span_class" id="exampleInputPassword1" class="form-control">
+                <?php foreach ($page as $key) : ?>
+                    <option value="<?= $key->span_class ?>"><?= $key->span_class ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

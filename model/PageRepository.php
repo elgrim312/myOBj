@@ -30,7 +30,14 @@
          */
         public function lister()
         {
-            $sql = "SELECT slug, title, id FROM `page`";
+            $sql = "SELECT
+                      slug,
+                      title,
+                      span_class,
+                      id,
+                      img
+                    FROM
+                     `page`";
             $stmt = $this->PDO->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -159,7 +166,15 @@
         public function detailAction($id)
         {
             $sql = "
-                  SELECT *
+                  SELECT
+                  `id`,
+                  `slug`,
+                  `h1`,
+                  `body`,
+                  `title`,
+                  `img`,
+                  `span_class`,
+                  `span_text`
                   FROM
                   page
                   WHERE
