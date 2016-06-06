@@ -28,11 +28,11 @@
             <th>Action</th>
         </tr>
 
-        <?php
-            if (count($page) == 0) : ?>
-                <tr>
-                    <td>il n'y a pas de page</td>
-                </tr>
+            <?php
+                if (count($page) == 0) : ?>
+                    <tr>
+                        <td>il n'y a pas de page</td>
+                    </tr>
             <?php endif;
             foreach ($page as $key) : ?>
                 <tr>
@@ -48,8 +48,7 @@
             <?php endforeach; ?>
     </table>
     <a href="?a=ajouter" class="btn btn-default">ajouter</a>
-    <a href="http://localhost:8888/PooYann?p=<?= $key->title ?>" style="margin-left: 30px" class="btn btn-default">retour
-        au site</a>
+    <a href="http://localhost:8888/PooYann?p=<?= $key->title ?>" style="margin-left: 30px" class="btn btn-default">retou au site</a>
 </div>
 </body>
 </html>
