@@ -87,12 +87,12 @@ class PageController
     public function displayAction()
     {
         // definition d'un slug par defaut (en cas d'appel sans parametre dans l'url)
-        $slug = 'teletubbies';
+        $slug = 'kitten';
         // recuperation du slug du parametre d'url si present
         if (isset($_GET['p'])) {
             $slug = $_GET['p'];
         } else {
-            $_GET['p'] = 'teletubbies';
+            $_GET['p'] = 'kitten';
         }
         // en PHP 7
         // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
