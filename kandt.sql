@@ -1,68 +1,62 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.0
+-- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 13, 2016 at 03:01 PM
--- Server version: 5.7.12
--- PHP Version: 7.0.4
+-- Client :  localhost:8889
+-- Généré le :  Lun 06 Juin 2016 à 11:22
+-- Version du serveur :  5.5.42
+-- Version de PHP :  5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `kandt`
+-- Base de données :  `kandt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `page`
+-- Structure de la table `page`
 --
 
 CREATE TABLE `page` (
   `id` int(11) NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `h1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `h1` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `span_text` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `span_class` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `title` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `span_text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `span_class` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `page`
+-- Contenu de la table `page`
 --
 
 INSERT INTO `page` (`id`, `slug`, `h1`, `body`, `title`, `img`, `span_text`, `span_class`) VALUES
-(1, 'teletubbies', '', '    <nav class="navbar navbar-inverse navbar-fixed-top">\n        <div class="container">\n            <div class="navbar-header">\n                <a class="navbar-brand" href="index.html">WtfWeb</a>\n            </div>\n            <div id="navbar" class="navbar-collapse collapse">\n                <ul class="nav navbar-nav">\n                    <li class="active"><a href="index.html">Teletubbies</a></li>\n                    <li><a href="kittens.html">Kittens</a></li>\n                    <li><a href="ironmaiden.html">Iron Maiden</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <div class="container theme-showcase" role="main">\n        <div class="jumbotron">\n            <h1>Les Teletubbies</h1>\n            <p>C\'est flippant.</p>\n            <span class="label label-danger">Danger</span>\n        </div>\n        <img class="img-thumbnail" alt="Teletubbies" src="img/teletubbies.jpg" data-holder-rendered="true">\n    </div>', 'Teletubbies', '', '', '');
+(7, 'kitten', 'chat', 'chaton oui <3', 'kitten', 'img/three_kittens.jpg', 'azrt', 'label-default'),
+(9, 'aezzedtcjawad', 'azeaz', 'azeaz', 'zeaze', 'img/lama.jpg', 'azeaz', 'label-warning'),
+(10, 'test', 'tet', 'test', 'test', 'img/snorkies.jpg', 'etsat', 'label-info');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `page`
+-- Index pour la table `page`
 --
 ALTER TABLE `page`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `page`
+-- AUTO_INCREMENT pour la table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
