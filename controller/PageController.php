@@ -5,7 +5,6 @@
 
     /**
      * Class PageController
-     * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
      * @package Controller
      */
 class PageController
@@ -106,7 +105,6 @@ class PageController
 
             return;
         }
-        // je dois avoir la nav initailiseee pour que la vue la montre
         // j'ai des donnees, je le affiche
         $nav = $this->genererLaNav($slug);
         include "view/page-display.php";
