@@ -1,17 +1,18 @@
 <?php
-namespace Controller;
+    namespace Controller;
 
-use Model\PageRepository;
+    use Model\PageRepository;
 
-/**
- * Class PageController
- * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
- * @package Controller
- */
+    /**
+     * Class PageController
+     * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
+     * @package Controller
+     */
 class PageController
 {
     const DEFAUT = 'hello';
     const LINK_DEFAULT = 'kitten';
+
     /**
      * PageController constructor.
      * @param \PDO $PDO
@@ -27,10 +28,10 @@ class PageController
     public function ajoutAction()
     {
         if (count($_POST) === 0) {
-            include "admin/add.php";
+            include "view/admin/add.php";
         }
         $this->repository->inserer($_POST);
-        header('Location:index.php' );
+        header('Location:index.php');
     }
 
     /**
@@ -40,7 +41,7 @@ class PageController
     {
         $id = $_GET['id'];
         $this->repository->supprimer($id);
-        header('Location:index.php' );
+        header('Location:index.php');
     }
 
     /**
@@ -51,9 +52,10 @@ class PageController
         if (count($_POST) === 0) {
             $id = $_GET['id'];
             $detail = $this->repository->detailAction($id);
-            include "admin/update.php";
+            include "view/admin/update.php";
+        } else {
+            $this->repository->modifier($_POST);
         }
-        $this->repository->modifier($_POST);
         header('Location:index.php');
     }
 
@@ -62,9 +64,13 @@ class PageController
      */
     public function detailsAction()
     {
+        if (!isset($_GET['id'])) {
+            throw new  \Exception('pad d\'id', 666);
+        }
         $id = $_GET['id'];
-         $details = $this->repository->detailAction($id);
-        include "admin/detail.php";
+        $details = $this->repository->detailAction($id);
+        $details->img = "../" . $details->img;
+        include "view/admin/detail.php";
     }
 
     /**
@@ -73,7 +79,7 @@ class PageController
     public function listeAction()
     {
         $page = $this->repository->lister();
-        include 'view/admin_index.php';
+        include 'view/admin/admin_index.php';
     }
 
     /**
@@ -86,7 +92,7 @@ class PageController
         // recuperation du slug du parametre d'url si present
         if (isset($_GET['p'])) {
             $slug = $_GET['p'];
-        }else{
+        } else {
             $_GET['p'] = 'teletubbies';
         }
         // en PHP 7
@@ -97,6 +103,7 @@ class PageController
         if ($page === false) {
             // 404
             include "view/404.php";
+
             return;
         }
         // je dois avoir la nav initailiseee pour que la vue la montre
@@ -105,6 +112,10 @@ class PageController
         include "view/page-display.php";
     }
 
+    /**
+     * @param $slug
+     * @return array|string
+     */
     private function genererLaNav($slug)
     {
         // generer la nav
@@ -114,6 +125,7 @@ class PageController
         $default = self::LINK_DEFAULT;
         include "view/nav.php";
         $nav = ob_get_clean();
+
         return $nav;
     }
 }

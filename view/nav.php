@@ -5,11 +5,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php foreach ($nav as $wtf) { ?>
-                    <li class="<?=isActive($wtf->slug, $slug)?>">
+                <?php foreach ($nav as $wtf) : ?>
+                    <li class="<?= isActive($wtf->slug, $slug) ?>">
                         <a  href="?p=<?= $wtf->slug ?>"><?= $wtf->slug ?></a>
                     </li>
-                <?php } ?>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
